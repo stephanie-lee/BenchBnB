@@ -1,5 +1,7 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
+
+var BenchStore = require("../stores/bench.js")
 /* globals google */
 //why is google globally available
 
@@ -10,6 +12,11 @@ var Map = React.createClass({
     )
   },
 
+  _onChange: function() {
+    // this.setState({ benches: BenchStore.all() });
+    // Finish this
+  },
+
   componentDidMount: function(){
     var map = ReactDOM.findDOMNode(this.refs.map);
     var mapOptions = {
@@ -18,9 +25,8 @@ var Map = React.createClass({
     };
     this.map = new google.maps.Map(map, mapOptions);
 
-    this.mapListener = BenchStore.addListener()
+    this.mapListener = BenchStore.addListener(this._onChange)
   },
-
 })
 
 module.exports = Map
