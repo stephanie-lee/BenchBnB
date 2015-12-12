@@ -1,3 +1,3 @@
 json.array! @benches do |bench|
-  json.extract! bench, :description
+  json.extract! bench, :id, :description
 end
