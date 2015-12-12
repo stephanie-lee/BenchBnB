@@ -1,5 +1,7 @@
 var React = require("react");
-var ReactDOM = require("react-dom")
+var ReactDOM = require("react-dom");
+/* globals google */
+//why is google globally available
 
 var Map = React.createClass({
   render: function() {
@@ -16,7 +18,7 @@ var Map = React.createClass({
     };
     this.map = new google.maps.Map(map, mapOptions);
 
-    
+    this.mapListener = BenchStore.addListener()
   },
 
 })
