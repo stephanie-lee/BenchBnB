@@ -7,10 +7,11 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
-var BenchStore = require('./stores/bench');
-var ApiUtil = require('./util/api_util');
-var Index = require('./components/index.jsx');
+// var BenchStore = require('./stores/bench');
+// var ApiUtil = require('./util/api_util');
+// var Index = require('./components/index.jsx');
 var Search = require('./components/search.jsx');
+console.log(document.getElementById('root'));
 
 var App = React.createClass({
   render: function(){
@@ -27,7 +28,12 @@ var routes = (
     <IndexRoute component={Search}/>
   </Route>
 );
-ReactDOM.render(<Router>{routes}</Router>, root);
+document.addEventListener("DOMContentLoaded", function () {
+  ReactDOM.render(
+    <Router>{routes}</Router>,
+    document.getElementById('root')
+  );
+});
 
 // var routes = (
 //   <Route path="/" component={Search}>
